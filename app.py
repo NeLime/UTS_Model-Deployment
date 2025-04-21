@@ -5,7 +5,7 @@ import pickle
 model = pickle.load(open('xgboost_model.pkl', 'rb'))
 features = pickle.load(open('features.pkl', 'rb'))
 
-st.title("🏨 Hotel Booking Status Prediction")
+st.title("Hotel Booking Status Prediction")
 st.write("Fill in the booking details below and click **Predict** to see whether the booking is likely to be canceled.")
 
 # Input fields
