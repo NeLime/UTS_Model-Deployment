@@ -47,5 +47,5 @@ if __name__ == "__main__":
 
     predictor = HotelBookingModelPredictor("xgboost_model.pkl", "features.pkl")
     label, prob = predictor.predict(sample_input)
-    print(f"Prediction: {label} (Probability: {prob*100:.2f}%)")
+    print(f"Prediction: {label} (Confidence: {prob*100:.2f}%)")
 
