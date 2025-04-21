@@ -5,7 +5,7 @@ import pickle
 model = pickle.load(open('xgboost_model.pkl', 'rb'))
 features = pickle.load(open('features.pkl', 'rb'))
 
-st.title("Machine Learning App Hotel Booking Status Prediction")
+st.title("Machine Learning App Hotel Booking Status")
 st.header("Name : Kristian Dinata")
 st.header("NIM : 2702285952")
 st.write("Fill in the booking details below")
