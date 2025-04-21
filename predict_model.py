@@ -1,4 +1,3 @@
-
 import pandas as pd
 import pickle
 
@@ -20,8 +19,10 @@ class HotelBookingModelPredictor:
         df_input = pd.get_dummies(df_input, columns=['type_of_meal_plan', 'room_type_reserved', 'market_segment_type'], drop_first=True)
         if self.features:
             df_input = df_input.reindex(columns=self.features, fill_value=0)
-        result = self.model.predict(df_input)
-        return "Canceled" if result[0] == 1 else "Not_Canceled"
+        probabilities = self.model.predict_proba(df_input)[0]
+        prediction_label = "Canceled" if probabilities[1] >= 0.5 else "Not_Canceled"
+        prediction_probability = probabilities[1] if prediction_label == "Canceled" else probabilities[0]
+        return prediction_label, prediction_probability
 
 if __name__ == "__main__":
     sample_input = {
@@ -43,6 +44,8 @@ if __name__ == "__main__":
         "avg_price_per_room": 65.0,
         "no_of_special_requests": 0
     }
+
     predictor = HotelBookingModelPredictor("xgboost_model.pkl", "features.pkl")
-    prediction = predictor.predict(sample_input)
-    print("Prediction:", prediction)
+    label, prob = predictor.predict(sample_input)
+    print(f"Prediction: {label} (Probability: {prob*100:.2f}%)")
+
