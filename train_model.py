@@ -42,8 +42,6 @@ class HotelBookingModelTrainer:
         y_test_pred = self.model.predict(X_test)
         acc_train = accuracy_score(y_train, y_train_pred)
         acc_test = accuracy_score(y_test, y_test_pred)
-        print(f"Akurasi Training: {acc_train:.4f}")
-        print(f"Akurasi Testing: {acc_test:.4f}")
         print("\nClassification Report:")
         print(classification_report(y_test, y_test_pred, target_names=["Not_Canceled", "Canceled"]))
         return acc_train, acc_test
