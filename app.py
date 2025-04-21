@@ -8,7 +8,7 @@ features = pickle.load(open('features.pkl', 'rb'))
 st.title("Machine Learning App Hotel Booking Status")
 st.header("Name : Kristian Dinata")
 st.header("NIM : 2702285952")
-st.write("Fill in the booking details below")
+st.write("App to predict booking status")
 
 # Input fields
 no_of_adults = st.number_input("Number of Adults", min_value=0, value=1)
