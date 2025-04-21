@@ -5,8 +5,10 @@ import pickle
 model = pickle.load(open('xgboost_model.pkl', 'rb'))
 features = pickle.load(open('features.pkl', 'rb'))
 
-st.title("Hotel Booking Status Prediction")
-st.write("Fill in the booking details below and click **Predict** to see whether the booking is likely to be canceled.")
+st.title("Machine Learning App Hotel Booking Status Prediction")
+st.header("Name : Kristian Dinata")
+st.header("NIM : 2702285952")
+st.write("Fill in the booking details below")
 
 # Input fields
 no_of_adults = st.number_input("Number of Adults", min_value=0, value=1)
